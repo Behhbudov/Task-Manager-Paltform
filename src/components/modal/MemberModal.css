@@ -1,0 +1,10 @@
+.member__modal_container {
+  position: absolute;
+  top: 60px;
+  right: 35px;
+  width: 350px;
+  z-index: 1;
+  border-radius: 24px;
+  background-color: #fff;
+  box-shadow: 1px 0 10px #afaeae;
+}

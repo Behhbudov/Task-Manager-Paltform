@@ -1,0 +1,18 @@
+.button__blue {
+  font: 400 15px "Roboto", sans-serif;
+  padding: 11px 20px;
+  background-color: #0013fe;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.button__gray {
+  font: 400 15px "Roboto", sans-serif;
+  padding: 11px 20px;
+  background-color: #ebebeb;
+  color: #616161;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}

@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import Signup from "./pages/signup/Signup";
+import Login from "./pages/login/Login";
+import Header from "./components/header/Header";
+import Main from "./pages/main/Main";
+import "./App.css";
 
 function App() {
+  const [isLogged, setIsLogged] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      setIsLogged(true);
+    } else {
+      setIsLogged(false);
+    }
+  }, []);
+
+  const handleLogin = () => {
+    setIsLogged(true);
+    navigate("/main");
+  };
+  const handleLogout = () => {
+    setIsLogged(false);
+    navigate("/login");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header onLogout={handleLogout} />
+      <Routes>
+        <Route
+          path="/"
+          element={isLogged ? <Navigate to="/main" /> : <Signup />}
+        />
+        <Route
+          path="/login"
+          element={
+            isLogged ? <Navigate to="/main" /> : <Login onLogin={handleLogin} />
+          }
+        />
+        <Route
+          path="/main"
+          element={isLogged ? <Main /> : <Navigate to="/login" />}
+        />
+      </Routes>
+    </>
   );
 }
 

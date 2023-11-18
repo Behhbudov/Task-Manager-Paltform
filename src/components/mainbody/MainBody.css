@@ -1,0 +1,22 @@
+.main__body_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.main__body_container > div {
+  display: flex;
+  flex-direction: column;
+  max-width: 1328px;
+  width: 93%;
+}
+.main__body_actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+.main__body_lists {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
